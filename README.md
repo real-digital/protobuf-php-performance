@@ -97,3 +97,14 @@ JSON is 1.9 times faster then ProtoBuf.
 
 * ProtoBuf: 3.38 seconds
 * JSON: 1.78 seconds
+
+## Considering network
+
+To transfer the payload over network the following times are needed.
+
+network with 10 MB/s for 1000000 messages:
+
+* Protobuf: 9 seconds
+* JSON: 19 seconds
+
+=> through smaller payloads ProtoBuf wins on overall timings (serialization + network)
