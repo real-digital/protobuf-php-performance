@@ -38,16 +38,16 @@ All benchmarks are executed from the command line - go into container:
 
     php size_benchmarks.php
 
-# Currrent results
+# Current results
 
 ## Payload
 
 | Technology | PayloadSize (bits) |
 |------------|--------------------|
-| ProtoBuf   | 672b               |
-| JSON       | 1504b              |
-| YAML       | 1552b              |
-| PHP        | 2648b              |
+| ProtoBuf   | 672                |
+| JSON       | 1504               |
+| YAML       | 1552               |
+| PHP        | 2648               |
 
 # Speed
 
@@ -87,8 +87,8 @@ ProtoBuf takes 2.24 times less space then JSON.
 
 1000000 messages:
 
-* Protobuf: 84 Mb
-* JSON: 188 Mb
+* Protobuf: 84 MB
+* JSON: 188 MB
 
 ## Speed
 JSON is 1.9 times faster then ProtoBuf.
