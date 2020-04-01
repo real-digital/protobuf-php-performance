@@ -23,9 +23,9 @@ class EncodeBench
     public function classSetUp()
     {
         $this->person = (new Person())
-            ->setName("Christopher Mancini")
+            ->setName("Max Mustermann")
             ->setId(1)
-            ->setEmail("chris@mydomain.com")
+            ->setEmail("max@mustermann.com")
             ->addPhone("home", "0123456789")
             ->addPhone("mobile", "1234567890")
             ->addPhone("work", "2345678901");

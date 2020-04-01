@@ -31,9 +31,9 @@ function runTest(string $title, Person $person)
 function defaultPerson()
 {
 	$person = (new Person())
-		->setName("Christopher Mancini")
+		->setName("Max Mustermann")
 		->setId(1)
-		->setEmail("chris@mydomain.com")
+		->setEmail("max@mustermann.com")
 		->addPhone("home", "0123456789")
 		->addPhone("mobile", "1234567890")
 		->addPhone("work", "2345678901");
@@ -44,9 +44,9 @@ function defaultPerson()
 function personWithLongStrings()
 {
 	$person = (new Person())
-		->setName(str_repeat("Christopher Mancini", 100000))
+		->setName(str_repeat("Max Mustermann", 100000))
 		->setId(1)
-		->setEmail(str_repeat("chris@mydomain.com", 1000))
+		->setEmail(str_repeat("max@mustermann.com", 1000))
 		->addPhone("home", "0123456789")
 		->addPhone("mobile", "1234567890")
 		->addPhone("work", "2345678901");
@@ -57,9 +57,9 @@ function personWithLongStrings()
 function personWithALotOfPhones()
 {
 	$person = (new Person())
-		->setName("Christopher Mancini")
+		->setName("Max Mustermann")
 		->setId(1)
-		->setEmail("chris@mydomain.com");
+		->setEmail("max@mustermann.com");
 
 	for ($i = 0; $i < 10000; $i++) {
 		$person
