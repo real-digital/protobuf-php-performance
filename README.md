@@ -1,6 +1,6 @@
 # Overview
 
-This project was created to compare the payload size and performance of serialization formats (Protocol Buffers, JSON, YAML, native PHP object serialization).
+This project was created to compare the payload size and speed of serialization formats (Protocol Buffers, JSON, YAML, native PHP object serialization).
 
 # Setup
 
