@@ -6,11 +6,8 @@
         "ext-ctype": "*",
         "ext-json": "*",
         "ext-protobuf": "*",
-        "athletic/athletic": "~0.1",
+        "phpbench/phpbench": "@dev",
         "symfony/yaml": "5.0.*"
-    },
-    "require-dev": {
-        "phpbench/phpbench": "@dev"
     },
     "autoload": {
         "psr-4": {
@@ -18,12 +15,5 @@
             "": ["src/generated/"]
         }
     },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Christopher Mancini",
-            "email": "cmancini@basho.com"
-        }
-    ],
     "minimum-stability": "dev"
 }
