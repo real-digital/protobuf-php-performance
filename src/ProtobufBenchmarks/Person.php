@@ -2,115 +2,117 @@
 
 namespace ProtobufBenchmarks;
 
-use ProtobufBenchmarks\Message;
+use ProtobufBenchmarks\Proto;
 
 class Person
 {
-    /**
-     * @var string
-     */
-    public $name  = "";
+	/**
+	 * @var string
+	 */
+	public $name = "";
 
-    /**
-     * @var int
-     */
-    public $id    = null;
+	/**
+	 * @var int
+	 */
+	public $id = null;
 
-    /**
-     * @var string
-     */
-    public $email = "";
+	/**
+	 * @var string
+	 */
+	public $email = "";
 
-    /**
-     * @var []string
-     */
-    public $phone = [];
+	/**
+	 * @var []string
+	 */
+	public $phones = [];
 
-    public function GenerateArray()
-    {
-        return [
-            'name'  => $this->name,
-            'id'    => $this->id,
-            'email' => $this->email,
-            'phone' => $this->phone,
-        ];
-    }
+	public function generateArray()
+	{
+		return [
+			'name' => $this->name,
+			'id' => $this->id,
+			'email' => $this->email,
+			'phones' => $this->phones,
+		];
+	}
 
-    public function GenerateProto()
-    {
-        $message = new Message\Person();
-        $message->setName($this->name);
-        $message->setId($this->id);
-        $message->setEmail($this->email);
+	public function generateProto()
+	{
+		$message = new Proto\Person();
+		$message->setName($this->name);
+		$message->setId($this->id);
+		$message->setEmail($this->email);
 
-        $message->clearPhone();
-        foreach ($this->phone as $key => $value) {
-            $phone = new Message\Person\PhoneNumber();
-            $phone->setNumber($value);
-            switch ($key) {
-                case 'home':
-                    $phone->setType(Message\Person\PhoneNumber\PhoneType::HOME);
-                case 'work':
-                    $phone->setType(Message\Person\PhoneNumber\PhoneType::WORK);
-                default:
-                    $phone->setType(Message\Person\PhoneNumber\PhoneType::MOBILE);
-            }
-            $message->appendPhone($phone);
-        }
+		$phones = [];
+		foreach ($this->phones as $value) {
+			$phoneType = $value['type'];
+			$phoneNumber = $value['number'];
+			$phone = new Proto\PhoneNumber();
+			$phone->setNumber($phoneNumber);
+			switch ($phoneType) {
+				case 'home':
+					$phone->setType(Proto\PhoneType::HOME);
+					break;
+				case 'work':
+					$phone->setType(Proto\PhoneType::WORK);
+					break;
+				default:
+					$phone->setType(Proto\PhoneType::MOBILE);
+					break;
+			}
+			$phones[] = $phone;
+		}
 
-        return $message;
-    }
+		$message->setPhone($phones);
 
-    public function SetName($name)
-    {
-        $this->name = $name;
+		return $message;
+	}
 
-        return $this;
-    }
+	public function setName($name)
+	{
+		$this->name = $name;
 
-    public function SetId($id)
-    {
-        $this->id = $id;
+		return $this;
+	}
 
-        return $this;
-    }
+	public function setId($id)
+	{
+		$this->id = $id;
 
-    public function SetEmail($email)
-    {
-        $this->email = $email;
+		return $this;
+	}
 
-        return $this;
-    }
+	public function setEmail($email)
+	{
+		$this->email = $email;
 
-    public function AddPhone($type, $number)
-    {
-        $this->phone[$type] = $number;
+		return $this;
+	}
 
-        return $this;
-    }
+	public function addPhone($type, $number)
+	{
+		$this->phones[] = ['type' => $type, 'number' => $number];
 
-    public function GetName()
-    {
-        return $this->name;
-    }
+		return $this;
+	}
 
-    public function GetId()
-    {
-        return $this->id;
-    }
+	public function getName()
+	{
+		return $this->name;
+	}
 
-    public function GetEmail()
-    {
-        return $this->email;
-    }
+	public function getId()
+	{
+		return $this->id;
+	}
 
-    public function toArray()
-    {
-        return $this->asArray;
-    }
+	public function getEmail()
+	{
+		return $this->email;
+	}
 
-    public function toProtoMessage()
-    {
-        return $this->asProtoMessage;
-    }
+	public function getPhones()
+	{
+		return $this->phones;
+	}
 }

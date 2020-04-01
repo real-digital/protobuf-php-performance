@@ -1,17 +1,21 @@
 {
-    "name": "php-riak/riak-clients-performance-comparison",
-    "description": "PHP Riak Clients Performance Comparison",
-   "require": {
-        "php":                  ">=5.4.0",
-        "athletic/athletic":    "~0.1",
-        "basho/protobuf": "dev-php7-merge",
-        "symfony/yaml": "^3.2",
-        "yosymfony/toml": "^0.3.3",
-        "sabre/xml": "^1.5"
+    "name": "real-digital/protobuf-php-performance-benchmarks",
+    "description": "PHP ProtoBuf performance benchmarks",
+    "require": {
+        "php": "^7.4.2",
+        "ext-ctype": "*",
+        "ext-json": "*",
+        "ext-protobuf": "*",
+        "athletic/athletic": "~0.1",
+        "symfony/yaml": "5.0.*"
+    },
+    "require-dev": {
+        "phpbench/phpbench": "@dev"
     },
     "autoload": {
         "psr-4": {
-            "ProtobufBenchmarks\\": "src/ProtobufBenchmarks/"
+            "ProtobufBenchmarks\\": ["src/ProtobufBenchmarks/"],
+            "": ["src/generated/"]
         }
     },
     "license": "MIT",
